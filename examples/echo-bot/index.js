@@ -51,3 +51,13 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`listening on ${port}`);
 });
+// 加在 index.js 最底部，讓 Render 能偵測到你的服務有啟動
+const http = require('http')
+const port = process.env.PORT || 3000
+
+http.createServer((req, res) => {
+  res.writeHead(200)
+  res.end('LINE Bot is running!')
+}).listen(port, () => {
+  console.log(`Server is listening on port ${port}`)
+})
